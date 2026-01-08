@@ -51,8 +51,8 @@ def plot_polar(psis, xs, polar_data, vmin, vmax, title=None, fname=None):
 
     # Create a 2x2 grid, specifying that all subplots are polar
     fig, axs = plt.subplots(2, 2, figsize=(12, 10), 
-                            subplot_kw={'projection': 'polar'})
-    fig.tight_layout()
+                            subplot_kw={'projection': 'polar'},
+                            layout='constrained')
     axs_flat = axs.flatten(order='F')
 
     mesh_objects = [] # Store plots to define colorbar later
@@ -102,7 +102,7 @@ def plot_polar(psis, xs, polar_data, vmin, vmax, title=None, fname=None):
 
     # plt.suptitle("Mean AoA Polar Distribution across Rotors", y=1.02, fontsize=14)
     if fname:
-        plt.savefig(fname, bbox_inches='tight')
+        plt.savefig(fname)
 
 # %%
 if __name__ == "__main__":
@@ -138,7 +138,7 @@ if __name__ == "__main__":
     var_ix = 14
     polar_aoa, psis, xs = read_perf(perf_file_path, NROTOR, NPSI, NX, MREV, var_ix)
     # visualize 
-    plot_polar(psis, xs, polar_aoa, -10, 10, title='Local Airfoil AoA', fname='outputs/polar_aoa.png')
+    plot_polar(psis, xs, polar_aoa, -10, 10, title='Local Airfoil AoA (deg)', fname='outputs/polar_aoa.png')
 
     var_ix = 15
     polar_mach, psis, xs = read_perf(perf_file_path, NROTOR, NPSI, NX, MREV, var_ix)

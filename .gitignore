@@ -1,0 +1,3 @@
+# Ignore the results files
+pyxfoil_results
+npy_files

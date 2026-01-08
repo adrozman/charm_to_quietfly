@@ -132,6 +132,8 @@ if __name__ == "__main__":
     # psi x=r/R dx dCT/dx dCQI/dx dCQP/dx X-force Y-force -Z-force P-mom AOAG CL2D
     # CD2D CM2D AOA2D MACH2D U-radial V-aft W-down W-induced Circulation
 
+    os.makedirs("outputs", exist_ok=True)
+
     # read perf file
     var_ix = 14
     polar_aoa, psis, xs = read_perf(perf_file_path, NROTOR, NPSI, NX, MREV, var_ix)
@@ -145,7 +147,6 @@ if __name__ == "__main__":
     # Create output directory for npy files
     outdir = "npy_files"
     os.makedirs(outdir, exist_ok=True)
-    os.makedirs("outputs",exist_ok=True)
 
     # aoa and Mach arrays are [N_Prop, N_PSI, NX]
     np.save(os.path.join(outdir, "polar_aoa.npy"), polar_aoa)

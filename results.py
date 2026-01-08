@@ -7,7 +7,7 @@ import glob
 # ----------------------------------
 RES_DIR = "pyxfoil_results"
 XC_TARGET = 0.99
-OUT_DIR = "outputs/bl_final_outputs.npy"
+OUT_DIR = "npy_files/bl_final_outputs.npy"
 bg_file = "inputs/SUIbg.inp"
 
 # Constants
@@ -26,25 +26,56 @@ def read_res_file(fname):
     """Read .res file and return structured data"""
     data = []
 
-    with open(fname, "r") as f:
-        for line in f:
-            if line.strip().startswith("#"):
-                continue
-            if not line.strip():
-                continue
-            parts = line.split()
-            # Need at least 11 columns (up to K column which is index 10)
-            if len(parts) < 11:
-                continue
-            try:
-                # Read only the first 11 columns we actually need
-                data.append([float(p) for p in parts[:11]])
-            except ValueError:
-                continue
-
-    if len(data) == 0:
+    try:
+        data = np.genfromtxt(
+            fname,
+            delimiter=[10, 9, 9, 9, 10, 10, 10, 10, 10, 9, 9],
+            comments="#",
+            usecols=range(11) # Only take the first 11 columns
+        )
+        # genfromtxt returns an empty array if file is empty or all comments
+        if data.size == 0:
+            return None
+        return data
+    except Exception:
         return None
-    
+
+#    # Modified this to use the fixed width of each column. This fixes the error when
+#    # two columns touch because of a minus sign.
+#
+#    with open(fname, "r") as f:
+#        for line in f:
+#            if not line.strip() or line.strip().startswith("#"):
+#                continue
+#
+#            # XFOIL .res has fixed width columns
+#            try:
+#
+#                data = np.genfromtxt(
+#
+#                row = [
+#                    line[0:10],    # 1: s
+#                    line[10:19],   # 2: x
+#                    line[19:28],  # 3: y
+#                    line[28:37],  # 4: Ue/Vinf
+#                    line[37:47],  # 5: Dstar
+#                    line[47:57],  # 6: Theta
+#                    line[57:67],  # 7: Cf
+#                    line[67:77],  # 8: H
+#                    line[77:87],  # 9: H*
+#                    line[87:96],  # 10: P
+#                    line[96:105]  # 11: m
+#                ]
+#
+#                data.append([float(val.strip()) for val in row])
+#
+#            except (ValueError, IndexError):
+#                # This catches header lines or lines that are too short
+#                continue
+
+    if not data:
+        return None
+
     return np.array(data)
 
 
@@ -135,6 +166,7 @@ def extract_values_at_99c(resfile, chord_length=1.0):
     idx_le = np.argmin(x)  # leading edge
     
     if idx_le == 0 or idx_le == len(x) - 1:
+        print(x)
         raise ValueError("Cannot identify leading edge properly")
 
     upper = slice(0, idx_le + 1)
@@ -178,7 +210,7 @@ def extract_values_at_99c(resfile, chord_length=1.0):
         H_val = interp_at_xc(x_s, H_s, XC_TARGET)
         
         # get m_inf from the filename...
-        Me = float(resfile.split("/")[-1].split("_")[-2])
+        Me = float(resfile.split("/")[-1].split("_")[-2].replace('p', '.'))
         
         # Hk = (H - 0.290*Me^2) / (1 + 0.113*Me^2)
         Hk = (H_val - 0.290 * Me**2) / (1 + 0.113 * Me**2) if (1 + 0.113 * Me**2) != 0 else H_val

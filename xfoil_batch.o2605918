@@ -53,19 +53,10 @@ Airfoil r/R=0.99 matched to NPY index 65 (r/R=0.9947)
 Loaded data: 4 rotors, 48 psi positions, 22 airfoil locations
 Total runs to attempt: 4224
 Starting 4224 XFOIL runs...
-FAIL: rotor 2, psi 31, r/R 0.16: could not convert string to float: ' 0.00440-'
-FAIL: rotor 3, psi 35, r/R 0.16: could not convert string to float: ' 0.00230-'
-FAIL: rotor 3, psi 36, r/R 0.16: could not convert string to float: ' 0.00440-'
-FAIL: rotor 3, psi 37, r/R 0.16: could not convert string to float: ' 0.00440-'
-FAIL: rotor 3, psi 38, r/R 0.16: could not convert string to float: ' 0.00440-'
-FAIL: rotor 4, psi 35, r/R 0.16: could not convert string to float: ' 0.00230-'
-FAIL: rotor 4, psi 36, r/R 0.16: could not convert string to float: ' 0.00440-'
-FAIL: rotor 4, psi 37, r/R 0.16: could not convert string to float: ' 0.00440-'
-FAIL: rotor 4, psi 38, r/R 0.16: could not convert string to float: ' 0.00440-'
 
 ============================================================
 All XFOIL runs completed.
-Success: 4215, Fail: 9, Skipped: 0
+Success: 4224, Fail: 0, Skipped: 0
 ============================================================
 Detected total spanwise locations (NX): 66
 0.0775
@@ -77,6 +68,6 @@ Successfully processed: 4224 cases
 Failed/skipped: 0 cases
 ============================================================
 
-real	0m35.947s
-user	0m8.583s
-sys	0m0.923s
+real	0m40.832s
+user	0m12.919s
+sys	0m1.137s

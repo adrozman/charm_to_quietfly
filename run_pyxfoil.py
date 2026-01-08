@@ -1,26 +1,7 @@
 # ################################################################
-# I'm using a locally stored pyxfoil install now. I belive
-# this best for now in case we have to modify the read results 
-# code of pyxfoil to amend the error when the .res file has double
-# negative value. See the point of error in the the output of the 
-# run log.
-# resfile line issue example
-# 1.05006  0.00043  0.00440-10.01466  0.000536  0.000246  2.180225    2.1528    1.6279  0.02464 -0.00537 -0.40174
-# 
-# we can possibly change this in the future
 import os
 import sys
-current_dir = os.path.dirname(os.path.abspath(__file__))
-pyxfoil_src_path = os.path.join(current_dir, "pyxfoil", "src")
-
-# Add that 'src' folder to the front of the search path
-sys.path.insert(0, pyxfoil_src_path)
-
 from pyxfoil import Xfoil, set_workdir, set_xfoilexe
-
-############################
-
-
 import numpy as np
 from concurrent.futures import ProcessPoolExecutor
 

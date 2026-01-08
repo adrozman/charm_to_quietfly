@@ -1,0 +1,82 @@
+Processing perf file: inputs/perf.dat
+Saved aoa and mach arrays to npy_files/
+Saved plots: polar_aoa.png and polar_mach.png
+0.0775
+[0.0904165, 0.103333, 0.11624949999999999, 0.129166, 0.14166600000000001, 0.1545825, 0.167499, 0.1804155, 0.193332, 0.2062485, 0.219165, 0.2320815, 0.244998, 0.2579145, 0.270831, 0.2837475, 0.296664, 0.3095805, 0.322497, 0.334997, 0.3479135, 0.351247]
+Found: SUI_12.dat
+Found: SUI_16.dat
+Found: SUI_21.dat
+Found: SUI_25.dat
+Found: SUI_29.dat
+Found: SUI_33.dat
+Found: SUI_37.dat
+Found: SUI_41.dat
+Found: SUI_45.dat
+Found: SUI_49.dat
+Found: SUI_54.dat
+Found: SUI_58.dat
+Found: SUI_62.dat
+Found: SUI_66.dat
+Found: SUI_70.dat
+Found: SUI_74.dat
+Found: SUI_78.dat
+Found: SUI_82.dat
+Found: SUI_87.dat
+Found: SUI_91.dat
+Found: SUI_95.dat
+Found: SUI_99.dat
+
+Found 22 airfoil files
+Airfoil r/R=0.12 matched to NPY index 0 (r/R=0.1292)
+Airfoil r/R=0.16 matched to NPY index 3 (r/R=0.1602)
+Airfoil r/R=0.21 matched to NPY index 8 (r/R=0.2136)
+Airfoil r/R=0.25 matched to NPY index 11 (r/R=0.2549)
+Airfoil r/R=0.29 matched to NPY index 14 (r/R=0.2960)
+Airfoil r/R=0.33 matched to NPY index 17 (r/R=0.3362)
+Airfoil r/R=0.37 matched to NPY index 19 (r/R=0.3638)
+Airfoil r/R=0.41 matched to NPY index 22 (r/R=0.4051)
+Airfoil r/R=0.45 matched to NPY index 25 (r/R=0.4464)
+Airfoil r/R=0.49 matched to NPY index 28 (r/R=0.4878)
+Airfoil r/R=0.54 matched to NPY index 32 (r/R=0.5429)
+Airfoil r/R=0.58 matched to NPY index 35 (r/R=0.5842)
+Airfoil r/R=0.62 matched to NPY index 38 (r/R=0.6256)
+Airfoil r/R=0.66 matched to NPY index 40 (r/R=0.6531)
+Airfoil r/R=0.70 matched to NPY index 43 (r/R=0.6944)
+Airfoil r/R=0.74 matched to NPY index 46 (r/R=0.7358)
+Airfoil r/R=0.78 matched to NPY index 49 (r/R=0.7771)
+Airfoil r/R=0.82 matched to NPY index 52 (r/R=0.8184)
+Airfoil r/R=0.87 matched to NPY index 56 (r/R=0.8736)
+Airfoil r/R=0.91 matched to NPY index 59 (r/R=0.9147)
+Airfoil r/R=0.95 matched to NPY index 62 (r/R=0.9549)
+Airfoil r/R=0.99 matched to NPY index 65 (r/R=0.9947)
+
+Loaded data: 4 rotors, 48 psi positions, 22 airfoil locations
+Total runs to attempt: 4224
+Starting 4224 XFOIL runs...
+FAIL: rotor 2, psi 31, r/R 0.16: could not convert string to float: ' 0.00440-'
+FAIL: rotor 3, psi 35, r/R 0.16: could not convert string to float: ' 0.00230-'
+FAIL: rotor 3, psi 36, r/R 0.16: could not convert string to float: ' 0.00440-'
+FAIL: rotor 3, psi 37, r/R 0.16: could not convert string to float: ' 0.00440-'
+FAIL: rotor 3, psi 38, r/R 0.16: could not convert string to float: ' 0.00440-'
+FAIL: rotor 4, psi 35, r/R 0.16: could not convert string to float: ' 0.00230-'
+FAIL: rotor 4, psi 36, r/R 0.16: could not convert string to float: ' 0.00440-'
+FAIL: rotor 4, psi 37, r/R 0.16: could not convert string to float: ' 0.00440-'
+FAIL: rotor 4, psi 38, r/R 0.16: could not convert string to float: ' 0.00440-'
+
+============================================================
+All XFOIL runs completed.
+Success: 4215, Fail: 9, Skipped: 0
+============================================================
+Detected total spanwise locations (NX): 66
+0.0775
+[0.0904165, 0.103333, 0.11624949999999999, 0.129166, 0.14166600000000001, 0.1545825, 0.167499, 0.1804155, 0.193332, 0.2062485, 0.219165, 0.2320815, 0.244998, 0.2579145, 0.270831, 0.2837475, 0.296664, 0.3095805, 0.322497, 0.334997, 0.3479135, 0.351247]
+
+============================================================
+Processing complete!
+Successfully processed: 4224 cases
+Failed/skipped: 0 cases
+============================================================
+
+real	0m35.947s
+user	0m8.583s
+sys	0m0.923s
